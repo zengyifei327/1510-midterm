@@ -46,3 +46,55 @@ Prove your function works in the docstring with these doctests:
 
 No main function is required.
 """
+
+
+def is_valid_parity(codeword, parity):
+    """
+    Determine if a string of binary digits has been correctly parity-encoded or not.
+
+    This function returns True if codeword is parity-encoded correctly. If it is not, the function returns False.
+
+    :param codeword: a non-empty string of binary digits
+    :param parity: a string, EVEN or ODD
+    :precondition: codeword must be a non-empty string of binary digits
+    :precondition: parity must be a string
+    :postcondition: determine if a string of binary digits has been correctly parity-encoded or not
+    :return: a Boolean, True or False
+    >>> is_valid_parity("101", "EVEN")
+    True
+    >>> is_valid_parity("11", "EVEN")
+    True
+    >>> is_valid_parity("111111111100000000001010110101", "EVEN")
+    True
+    >>> is_valid_parity("10", "ODD")
+    True
+    >>> is_valid_parity("111", "ODD")
+    True
+    >>> is_valid_parity("1111111111000011111000001010110101", "ODD")
+    True
+    >>> is_valid_parity("111", "EVEN")
+    False
+    >>> is_valid_parity("11111111100000000001010110101", "EVEN")
+    False
+    >>> is_valid_parity("11", "ODD")
+    False
+    >>> is_valid_parity("101", "ODD")
+    False
+    >>> is_valid_parity("11111111111000011111000001010110101", "ODD")
+    False
+
+    """
+    number_of_1 = 0
+    for bit in codeword:
+        if bit == '1':
+            number_of_1 += 1
+
+    if number_of_1 % 2 == 0:
+        actual_parity = 'EVEN'
+    else:
+        actual_parity = 'ODD'
+
+    if actual_parity == parity:
+        return True
+    else:
+        return False
