@@ -14,7 +14,7 @@ def name_list():
     while True:
         user_input_name = input('Enter a name, enter "quit" when you finish:')
 
-        if user_input_name != 'quit':
+        if user_input_name == 'quit':
             break
 
         name_length = len(user_input_name)
@@ -23,7 +23,8 @@ def name_list():
         else:
             name_dict[name_length] = [user_input_name]
 
-    return name_dict
+    sorted_name_dict = dict(sorted(name_dict.items()))
+    return sorted_name_dict
 
 
 def main():
