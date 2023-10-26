@@ -2,4 +2,4 @@ txt = ",,,,,rrttgg.....banana....rrr"
 
 x = txt.strip(",.grt")
 
-print(x)  #banana
+print(x)  # banana
